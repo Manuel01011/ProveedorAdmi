@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Proveedores</title>
+    <style>
+        table{border-collapse: collapse;width: 100%}
+        th,dt{padding: 8px;text-align: left;border-bottom: 1px solid #a51c1e;}
+        tr:hover{background-color: #b6dffa
+        }
+    </style>
+</head>
+<body>
+    <header>Proveedores</header>
+
+    <div class="centered">
+        <table style="border:1px solid #a51c1e">
+            <tr>
+                <th>Nombre</th>
+                <th>Cedula</th>
+                <th>Email</th>
+                <th>Contraseña</th>
+            </tr>
+            <tr th:each="proveedor : ${proveedores}">
+                <td th:text="${proveedor.nombre}">Nombre</td>
+                <td th:text="${proveedor.cedula}">Cedula</td>
+                <td th:text="${proveedor.correo}">Correo</td>
+                <td th:text="${proveedor.contrasena}">Contraseña</td>
+            </tr>
+        </table>
+    </div>
+        <footer>My company</footer>
+</body>
+</html>

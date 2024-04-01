@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="base :: head">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
+</div>
+<body>
+<section id="contacto">
+    <div th:replace="base :: header"></div>
+    <h1>Acerca de...</h1>
+    <div th:replace="navegador :: lista"></div>
+    <div th:replace="footer :: footer"></div>
+</section>
+</body>
+</html>
