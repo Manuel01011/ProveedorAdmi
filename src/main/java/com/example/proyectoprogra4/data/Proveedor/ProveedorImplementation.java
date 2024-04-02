@@ -23,6 +23,17 @@ public class ProveedorImplementation implements ProveedorService {
     public Proveedor userById(String cedula) {
         Optional<Proveedor> optionalProveedor = proveedorRepository.findById(cedula);
         Proveedor proveedor = optionalProveedor.orElseThrow(() -> new RuntimeException("Not Found"));
-        return proveedor; }
+        return proveedor;
+    }
+
+    @Override
+    public Proveedor actualizarProveedor(Proveedor proveedor) {
+        return proveedorRepository.save(proveedor);
+    }
+
+    @Override
+    public void eliminarProveedor(String cedula) {
+        proveedorRepository.deleteById(cedula);
+    }
 
 }

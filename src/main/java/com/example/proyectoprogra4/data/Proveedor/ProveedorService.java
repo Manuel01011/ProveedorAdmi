@@ -9,4 +9,6 @@ public interface ProveedorService  {
     public List<Proveedor> listaProveedores();
     public Proveedor guardarProveedor(Proveedor proveedor);
     public Proveedor userById(String cedula);
+    public Proveedor actualizarProveedor(Proveedor proveedor);
+    public void eliminarProveedor(String cedula);
 }

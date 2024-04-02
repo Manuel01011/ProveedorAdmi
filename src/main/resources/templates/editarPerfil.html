@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edistar Perfil</title>
+</head>
+<body>
+<head>
+    <meta charset="UTF-8">
+    <title>Hacienda</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
+</head>
+
+<header><h1>Editando Perfil del Proveedor</h1></header>
+<section>
+    <form th:action="@{/editarPerfil} " th:object="${proveedor}" method="post">
+        <br>
+
+        <div>
+            <label>Nombre completo:</label>
+            <input type="text" name="nombre" th:field="*{nombre}" placeholder="Digite tu nombre..."  required>
+        </div>
+        <br>
+
+        <div>
+            <label>Cedula: </label>
+            <input type="text" name="cedula"  th:field="*{cedula}" readonly>
+        </div>
+        <br>
+
+        <div>
+            <label>Correo electronico: </label>
+            <input type="email" name="email" th:field="*{correo}" placeholder="example@go.com" required>
+        </div>
+        <br>
+
+        <div >
+            <label>Contraseña: </label>
+            <input type="password" name="contrasena" th:field="*{contrasena}" placeholder="Digite su contraseña... " required>
+        </div>
+        <br>
+
+        <div class="contenedorBotones">
+            <input class="botonRegreso" type="button" value="Atras" onclick="window.location.href = '/perfilProveedor';">
+            <button >Guardar</button>
+        </div>
+    </form>
+    <br>
+
+
+    <div th:replace="footer :: footer"></div>
+</section>
+
+</body>
+</html>

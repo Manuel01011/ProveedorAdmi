@@ -11,6 +11,10 @@ h1.h1index{
     text-align: center;
 }
 
+.float-right {
+    float: right;
+}
+
 nav {
     background-color: rgb(18, 24, 83);
     color: white;

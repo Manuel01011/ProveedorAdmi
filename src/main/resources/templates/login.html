@@ -29,7 +29,10 @@
 
     <button id="button">Submit</button>
     <a class="forgotLink" href="/registrarProveedor">¿Aún no tienes una cuenta? ¡Registrate!</a>
-    <p th:if="${error}" th:text="${error}"></p>
+    <br>
+    <div>
+        <p th:if="${error}" th:text="${error}"></p>
+    </div>
 </form>
 
     <nav th:replace="footer :: footer"></nav>

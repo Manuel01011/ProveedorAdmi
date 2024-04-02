@@ -34,12 +34,7 @@ public class controller {
         return "footer";
     }
 
-    @GetMapping("/perfilProveedor")
-    public String perfilProveedor(Model model){
-        Modelo modelo = new Modelo("Perfil Proveedor");
-        model.addAttribute("modelo",modelo);
-        return "perfilProveedor";
-    }
+
 
 }
 
