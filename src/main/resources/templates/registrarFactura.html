@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hacienda</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
+</head>
+<body>
+
+<form th:action="@{/registrarFactura}" th:object="${facturas}" method="post">
+    <br>
+
+    <div>
+        <label>Codigo:</label>
+        <input type="text" name="codigo" th:id="*{codigo}" placeholder="Digite el nombre codigo..."  required>
+    </div>
+    <br>
+
+    <div>
+        <label>Precio: </label>
+        <input type="text" name="precio" th:text="*{precio}" placeholder="Digite el nombre precio..."  required>
+    </div>
+    <br>
+
+    <div>
+        <label>Ingresa la fecha:</label>
+        <input type="text" name="fecha" th:field="*{fecha}" placeholder="Digite la fecha de la factura..."  required>
+    </div>
+
+    <div>
+        <label for="opciones">Selecciona la cedula del cliente:</label>
+        <select id="opciones" name="opciones">
+            <option th:value="${cliente.identificacion}" th:each="cliente : ${clientes}" th:text="${cliente.identificacion}"></option>
+        </select>
+    </div>
+
+    <div>
+        <label for="opciones2">Selecciona el codigo del producto:</label>
+        <select id="opciones2" name="opciones2" >
+            <option th:value="${producto.codigo}" th:each="producto : ${productos}" th:text="${producto.codigo}"></option>
+        </select>
+    </div>
+
+
+    <div class="contenedorBotones">
+        <input class="botonRegreso" type="button" value="Atras" onclick="window.location.href = '/login';">
+        <button >Guardar</button>
+    </div>
+
+
+</form>
+
+</body>
+</html>

@@ -9,21 +9,69 @@
 <div th:replace="base :: header"></div>
 <h1>Perfil Proveedor
     <span class="float-right" th:text="${proveedor.nombre}">
-        <img th:src="@{/images/perfil.png}" alt="Provider" width="20" height="20" />
+        <img th:src="@{/imagenes/usuario}" alt="Provider" width="20" height="20"/>
     </span>
 </h1>
 <div th:fragment="listaProveedor">
     <nav>
         <ul><!--Lista-->
-            <li><a href="/editarPerfil" target="_blank">Configurar Perfil</a></li><!--elementos de la lista-->
-            <li><a href="#" target="_blank">Registrar Clientes</a></li>
-            <li><a href="#" target="_blank">Registrar Productos</a></li>
-            <li><a href="#" target="_blank">Ver facturas</a></li>
+            <li><a href="/editarPerfil" >Configurar Perfil</a></li><!--elementos de la lista-->
+            <li><a href="/registrarCliente">Registrar Clientes</a></li>
+            <li><a href="/registrarProductos">Registrar Productos</a></li>
+            <li><a href="/registrarFactura">Registrar Factura</a></li>
             <li><a href="/login">Cerrar Sesion</a></li>
         </ul>
     </nav>
 </div>
+<br><br>
+<div>
+    <h2>Lista de Clientes</h2>
+    <table style="border:1px solid #a51c1e">
+        <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Facturar</th>
+        </tr>
+        <tr th:each="cliente : ${clientes}">
+            <td th:text="${cliente.nombre}"></td>
+            <td th:text="${cliente.identificacion}"></td>
+        </tr>
+    </table>
 
-    <nav th:replace="footer :: footer"></nav>
+    <h2>Lista de Productos</h2>
+    <table style="border:1px solid #a51c1e">
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Facturar</th>
+        </tr>
+        <tr th:each="producto : ${productos}">
+            <td th:text="${producto.codigo}"></td>
+            <td th:text="${producto.nombre}"></td>
+            <td th:text="${producto.precio}"></td>
+        </tr>
+    </table>
+
+    <h2>Lista de Facturas</h2>
+    <table style="border:1px solid #a51c1e">
+        <tr>
+            <th>Codigo</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+            <th>Cliente</th>
+            <th>Producto</th>
+        </tr>
+        <tr th:each="factura : ${facturas}">
+            <td th:text="${factura.codigo}"></td>
+            <td th:text="${factura.fecha}"></td>
+            <td th:text="${factura.precio}"></td>
+            <td th:text="${factura.getClienteByCliente().nombre}"></td>
+            <td th:text="${factura.getProductoByProducto().nombre}"></td>
+        </tr>
+    </table>
+
+
+</div>
 </body>
 </html>

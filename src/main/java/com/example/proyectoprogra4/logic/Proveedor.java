@@ -3,13 +3,11 @@ package com.example.proyectoprogra4.logic;
 import jakarta.persistence.*;
 
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class Proveedor {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "cedula", unique = true)
+    @Column(name = "cedula")
     private String cedula;
     @Basic
     @Column(name = "nombre")
@@ -24,16 +22,6 @@ public class Proveedor {
     private Collection<Factura> facturasByCedula;
     @OneToMany(mappedBy = "proveedorByProveedor")
     private Collection<Producto> productosByCedula;
-
-    public Proveedor() {
-    }
-
-    public Proveedor(String cedula, String nombre, String correo, String contrasena) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.correo = correo;
-        this.contrasena = contrasena;
-    }
 
     public String getCedula() {
         return cedula;
@@ -71,13 +59,24 @@ public class Proveedor {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Proveedor proveedor = (Proveedor) o;
-        return Objects.equals(cedula, proveedor.cedula) && Objects.equals(nombre, proveedor.nombre) && Objects.equals(correo, proveedor.correo) && Objects.equals(contrasena, proveedor.contrasena);
+
+        if (cedula != null ? !cedula.equals(proveedor.cedula) : proveedor.cedula != null) return false;
+        if (nombre != null ? !nombre.equals(proveedor.nombre) : proveedor.nombre != null) return false;
+        if (correo != null ? !correo.equals(proveedor.correo) : proveedor.correo != null) return false;
+        if (contrasena != null ? !contrasena.equals(proveedor.contrasena) : proveedor.contrasena != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cedula, nombre, correo, contrasena);
+        int result = cedula != null ? cedula.hashCode() : 0;
+        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
+        result = 31 * result + (correo != null ? correo.hashCode() : 0);
+        result = 31 * result + (contrasena != null ? contrasena.hashCode() : 0);
+        return result;
     }
 
     public Collection<Factura> getFacturasByCedula() {

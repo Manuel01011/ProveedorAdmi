@@ -17,9 +17,6 @@ public class controller {
     }
 
 
-
-
-
     @GetMapping("/about")
     public String about(Model model){
         Modelo modelo = new Modelo("Esta es la pagina de informacion de la Hacienda");

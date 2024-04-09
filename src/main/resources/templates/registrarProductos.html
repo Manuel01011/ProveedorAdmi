@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hacienda</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
+</head>
+<body>
+<header><h1>Registrar Producto</h1></header>
+<section>
+    <form th:action="@{/registrarProductos}" th:object="${producto}" method="post">
+        <br>
+
+        <div >
+            <label>Codigo:</label>
+            <input type="text" name="codigo" th:field="*{codigo}" placeholder="Digite el codigo del producto..."  required>
+        </div>
+        <br>
+
+        <div >
+            <label>Nombre: </label>
+            <input type="text" name="nombre" th:id="*{nombre}" placeholder="Digite el nombre del producto..." required>
+        </div>
+
+        <div >
+            <label>Precio: </label>
+            <input type="text" name="precio" th:id="*{precio}" placeholder="Digite el precio del producto..." required>
+        </div>
+        <br>
+
+        <div class="contenedorBotones">
+            <input class="botonRegreso" type="button" value="Atras" onclick="window.location.href = '/login';">
+            <button >Guardar</button>
+        </div>
+    </form>
+    <div th:replace="footer :: footer"></div>
+</section>
+
+</body>
+</html>
