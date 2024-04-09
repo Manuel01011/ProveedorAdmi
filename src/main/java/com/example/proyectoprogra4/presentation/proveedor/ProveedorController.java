@@ -49,7 +49,6 @@ public class ProveedorController {
                                   @RequestParam("cedula") String cedula,
                                   @RequestParam("contrasena") String contra) throws Exception {
         if(cedula.equals("admin") && contra.equals("admin")){
-            model.addAttribute("admin", "");
             return "redirect:/administracion";
         }
         Proveedor existingProveedor = proveedorService.userById(proveedor.getCedula());
@@ -59,6 +58,12 @@ public class ProveedorController {
         }
         session.setAttribute("loggedInProveedor", existingProveedor);
         return "redirect:/perfilProveedor";
+    }
+
+    @GetMapping("/administracion")
+    public String admin(Model model){
+        model.addAttribute("admin", "Modulo de Administración");
+        return "administracion";
     }
 
     @GetMapping("/perfilProveedor")
