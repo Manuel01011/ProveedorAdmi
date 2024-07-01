@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="base :: head">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
+</div>
+<body>
+
+<div th:replace="base :: header"></div>
+
+<h1>Administración</h1>
+<div th:fragment="listaProveedor">
+    <nav>
+        <ul><!--Lista-->
+            <li><a href="/administracion" >Atras</a></li><!--elementos de la lista-->
+            <li><a href="/login">Cerrar Sesion</a></li>
+        </ul>
+    </nav>
+</div>
+<br><br>
+<div>
+    <h2>Solicitudes de Proveedores Pendientes</h2>
+    <div class="centered">
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Cedula</th>
+                <th>Email</th>
+                <th>Contraseña</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="proveedor : ${proveedoresPendientes}">
+                <td th:text="${proveedor.nombre}">Nombre</td>
+                <td th:text="${proveedor.cedula}">Cedula</td>
+                <td th:text="${proveedor.correo}">Correo</td>
+                <td th:text="${proveedor.contrasena}">Contraseña</td>
+                <td>
+                    <form method="post" th:action="@{/aceptar}">
+                        <input type="hidden" name="proveedorId" th:value="*{proveedor.cedula}">
+                        <button type="submit" style="color: white; background-color: green; border: none; padding: 5px 10px; border-radius: 5px;">Aceptar</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" th:action="@{/rechazar}">
+                        <input type="hidden" name="proveedorId" th:value="*{proveedor.cedula}">
+                        <button type="submit" style="color: white; background-color: red; border: none; padding: 5px 10px; border-radius: 5px;">Rechazar</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<nav th:replace="footer :: footer"></nav>
+</body>
+</html>

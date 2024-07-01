@@ -1,10 +1,13 @@
 header {
-    background-color: rgb(18, 25, 76);
-    color: white;
-    text-align: center;
+    background: linear-gradient(to bottom, rgba(70, 14, 139, 0.8), rgba(70, 14, 139, 0.2));
+    color: #e0e8d1;
     padding: 1em;
     width: 100%;
     margin: 0;
+}
+
+#l{
+    text-align: left;
 }
 
 h1.h1index{
@@ -16,8 +19,8 @@ h1.h1index{
 }
 
 nav {
-    background-color: rgb(18, 24, 83);
-    color: white;
+    background: linear-gradient(to bottom, rgba(70, 14, 139, 0.8), rgba(70, 14, 139, 0.2));
+    color: #e0e8d1;
     padding: 0.5em;
     width: 100%;
     margin: 0;
@@ -44,10 +47,11 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: black;
+    background: linear-gradient(to bottom, rgba(70, 14, 139, 0.8), rgba(70, 14, 139, 0.2));
     color: white;
     text-align: center;
 }
+
 .campoTerminos {
     display: flex;
     justify-content: space-between;
@@ -56,6 +60,9 @@ footer{
     display: flex;
     justify-content: space-between;
     gap: 10px; /* Ajusta este valor según el espacio deseado entre los botones */
+    align-items: center;
+    width: 200px; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
 form{
@@ -81,6 +88,9 @@ input[type="submit"] {/*solo para los botones submit*/
     padding: 10px;
     border: none;
     cursor: pointer;
+    width: calc(50% - 5px); /* Ancho del 50% con un pequeño espacio de separación */
+    height: 40px; /* Altura deseada */
+    margin: 0; /* Eliminar márgenes para que el espacio entre los botones sea consistente */
 }
 
 input[type="button"]{
@@ -89,6 +99,21 @@ input[type="button"]{
     padding: 10px;
     border: none;
     cursor: pointer;
+    width: calc(50% - 5px); /* Ancho del 50% con un pequeño espacio de separación */
+    height: 40px; /* Altura deseada */
+    margin: 0; /* Eliminar márgenes para que el espacio entre los botones sea consistente */
+}
+
+#botonCliente{
+    background-color: darkgreen;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: calc(50% - 5px); /* Ancho del 50% con un pequeño espacio de separación */
+    height: 40px; /* Altura deseada */
+    margin: 0; /* Eliminar márgenes para que el espacio entre los botones sea consistente */
 }
 
 .form_main {
@@ -104,7 +129,9 @@ input[type="button"]{
     overflow: hidden;
 }
 
-
+#about{
+     background-position: center;
+}
 .heading {
     font-size: 2em;
     color: #2e2e2e;
@@ -181,4 +208,109 @@ input[type="button"]{
     border-radius: 20px;
 }
 
+/* Estilos específicos para esta página */
+body {
+    background-image: url('/imagenes/fondo.avif');
+    background-size: cover; /* Para cubrir toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    font-family: Arial, sans-serif; /* Fuente genérica para el texto */
+    color: white; /* Color de texto blanco para contrastar con el fondo */
+    padding: 20px; /* Espaciado interior para el contenido */
+}
 
+h1, p {
+    text-align: center; /* Centra el texto */
+}
+
+img {
+    display: block; /* Para centrar la imagen horizontalmente */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    max-width: 100%; /* Para que la imagen no sobrepase el ancho de su contenedor */
+}
+.botonPDF {
+    padding: 7px 14px; /* Espacio interno */
+    background-color: #e0e8d1; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    font-size: 13px; /* Tamaño del texto */
+    border: none; /* Eliminar borde */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+/* Estilo al pasar el cursor sobre el botón */
+.botonPDF:hover {
+    background-color: #a51c1e; /* Cambio de color de fondo */
+}
+
+.botonXML {
+    padding: 7px 10px; /* Espacio interno */
+    background-color: #e0e8d1; /* Color de fondo */
+    color: #000000; /* Color del texto */
+    font-size: 13px; /* Tamaño del texto */
+    border: none; /* Eliminar borde */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+/* Estilo al pasar el cursor sobre el botón */
+.botonXML:hover {
+    background-color: #e8712e; /* Cambio de color de fondo */
+}
+
+a {
+    color: #ffd700; /* Color dorado para los enlaces */
+}
+
+/* Contenedor para las tablas */
+.tablas-container {
+    display: flex;
+    justify-content: space-between; /* Distribuir el espacio entre las tablas */
+    margin-bottom: 20px;
+}
+
+/* Estilos para las tablas */
+.tablas-container table {
+    width: 33%; /* Ancho de cada tabla */
+}
+
+/* Estilo para las filas pares */
+.tablas-container table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/* Estilo para las celdas encabezado */
+.tablas-container table th {
+    background-color: rgba(70, 14, 139, 0.8); /* Color de fondo claro */
+    color: #e0e8d1; /* Color de texto oscuro */
+}
+
+/* Estilo para las celdas de datos */
+.tablas-container table td {
+    background-color: #b2acac; /* Color de fondo blanco */
+    color: #333; /* Color de texto oscuro */
+}
+
+.centered table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.centered th, .centered td {
+    border: 1px solid #e0e8d1;
+    padding: 8px;
+    text-align: left;
+}
+.centered th {
+    background-color: rgba(70, 14, 139, 0.8); /* Color de fondo claro */
+    color: #e0e8d1; /* Color de texto oscuro */}
+.centered td {
+    vertical-align: top;
+}
+.table-container2 {
+    display: flex;
+    justify-content: space-around;
+}
+.table-container2 table {
+    min-width: 300px;
+}

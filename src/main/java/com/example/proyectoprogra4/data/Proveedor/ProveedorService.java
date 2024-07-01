@@ -12,7 +12,7 @@ public interface ProveedorService  {
     public List<Cliente> listaClientes(String id);
     public List<Producto> listaProductos(String id);
     public List<Factura> listaFactura(String id);
-    public Proveedor guardarProveedor(Proveedor proveedor);
+    public void guardarProveedor(Proveedor proveedor) throws Exception;
     public Proveedor userById(String cedula);
     public Proveedor actualizarProveedor(Proveedor proveedor);
     public void eliminarProveedor(String cedula);
@@ -21,6 +21,12 @@ public interface ProveedorService  {
     public void saveFacturas(Factura factura);
     public Cliente buscarCliente(String id);
     public Producto buscarProducto(String id);
-
-
+    public Factura buscarFactura(String id);
+    List<Proveedor> getProveedoresNoAceptados();
+    void aceptar(String cedula);
+    void hailtar(String cedula);
+    void desabilitar(String cedula);
+    public boolean proveedorById(String cedula);
+    public void rechazar(String cedula);
+    List<Proveedor> listaNohabilitados();
 }

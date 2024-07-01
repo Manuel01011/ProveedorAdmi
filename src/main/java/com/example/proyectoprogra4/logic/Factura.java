@@ -1,5 +1,6 @@
 package com.example.proyectoprogra4.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -15,16 +16,19 @@ public class Factura {
     @Basic
     @Column(name = "precio")
     private BigDecimal precio;
+
     @ManyToOne
     @JoinColumn(name = "cliente", referencedColumnName = "identificacion", nullable = false)
     private Cliente clienteByCliente;
+
     @ManyToOne
     @JoinColumn(name = "producto", referencedColumnName = "codigo", nullable = false)
     private Producto productoByProducto;
+
     @ManyToOne
     @JoinColumn(name = "proveedor", referencedColumnName = "cedula", nullable = false)
+    @JsonIgnoreProperties("facturasByCedula")
     private Proveedor proveedorByProveedor;
-
     public String getCodigo() {
         return codigo;
     }

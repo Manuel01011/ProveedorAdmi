@@ -24,54 +24,77 @@
     </nav>
 </div>
 <br><br>
-<div>
-    <h2>Lista de Clientes</h2>
-    <table style="border:1px solid #a51c1e">
-        <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Facturar</th>
-        </tr>
-        <tr th:each="cliente : ${clientes}">
-            <td th:text="${cliente.nombre}"></td>
-            <td th:text="${cliente.identificacion}"></td>
-        </tr>
-    </table>
 
-    <h2>Lista de Productos</h2>
-    <table style="border:1px solid #a51c1e">
-        <tr>
-            <th>Codigo</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Facturar</th>
-        </tr>
-        <tr th:each="producto : ${productos}">
-            <td th:text="${producto.codigo}"></td>
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.precio}"></td>
-        </tr>
-    </table>
+<div class="tablas-container">
+    <div>
+        <h2>Lista de Clientes</h2>
+        <br>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Cedula</th>
+            </tr>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.nombre}"></td>
+                <td th:text="${cliente.identificacion}"></td>
+            </tr>
+        </table>
 
-    <h2>Lista de Facturas</h2>
-    <table style="border:1px solid #a51c1e">
-        <tr>
-            <th>Codigo</th>
-            <th>Fecha</th>
-            <th>Precio</th>
-            <th>Cliente</th>
-            <th>Producto</th>
-        </tr>
-        <tr th:each="factura : ${facturas}">
-            <td th:text="${factura.codigo}"></td>
-            <td th:text="${factura.fecha}"></td>
-            <td th:text="${factura.precio}"></td>
-            <td th:text="${factura.getClienteByCliente().nombre}"></td>
-            <td th:text="${factura.getProductoByProducto().nombre}"></td>
-        </tr>
-    </table>
+    </div>
 
 
+    <div>
+        <h2>Lista de Productos</h2>
+        <br>
+        <table>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+            <tr th:each="producto : ${productos}">
+                <td th:text="${producto.codigo}"></td>
+                <td th:text="${producto.nombre}"></td>
+                <td th:text="${producto.precio}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h2>Lista de Facturas</h2>
+        <br>
+        <table>
+            <tr>
+                <th>Codigo</th>
+                <th>Fecha</th>
+                <th>Precio</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>PDF</th>
+                <th>XML</th>
+            </tr>
+            <tr th:each="factura : ${facturas}">
+                <td th:text="${factura.codigo}"></td>
+                <td th:text="${factura.fecha}"></td>
+                <td th:text="${factura.precio}"></td>
+                <td th:text="${factura.getClienteByCliente().nombre}"></td>
+                <td th:text="${factura.getProductoByProducto().nombre}"></td>
+                <td>
+                    <form method="post" action="/generar_pdf">
+                        <input type="hidden" name="facturaCodigo" th:value="${factura.codigo}" />
+                        <button type="submit" class="botonPDF">Descargar</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/generar_xml">
+                        <input type="hidden" name="facturaCodigo" th:value="${factura.codigo}" />
+                        <button type="submit" class="botonXML">Descargar</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
+<nav th:replace="footer :: footer"></nav>
 </body>
 </html>

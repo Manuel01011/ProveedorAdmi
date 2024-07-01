@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="base :: head">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
 </div>
 <body>
 <section id="contacto">
@@ -10,5 +9,17 @@
     <div th:replace="navegador :: lista"></div>
     <div th:replace="footer :: footer"></div>
 </section>
+
+<p class="text-reset fw-normal" style="margin-top:16px">
+    <span style="font-size:13px; margin-top:3px">República de Costa Rica &nbsp;|&nbsp;
+                    <i class="fas fa-map-marker-alt fs-16"></i>&nbsp;San Jóse, Avenida 2da &nbsp;|&nbsp;
+                    <i class="fas fa-phone-alt fs-16"></i>&nbsp;(+506) 2539-4777 &nbsp;|&nbsp;
+                    <i class="fas fa-at fs-16"></i>&nbsp;comunicacionmh@hacienda.go.cr &nbsp;|&nbsp;
+                    <i class="far fa-clock fs-16"></i>&nbsp;Lunes a Viernes, 8:00 a.m. - 4:00 p.m.
+    </span>
+</p>
+<br><br>
+<img src="/imagenes/minesterio.png" width="300px" id="about">
+
 </body>
 </html>

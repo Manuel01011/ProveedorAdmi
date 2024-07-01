@@ -1,5 +1,6 @@
 package com.example.proyectoprogra4.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -15,7 +16,9 @@ public class Cliente {
     @Basic
     @Column(name = "proveedor")
     private String proveedor;
+
     @OneToMany(mappedBy = "clienteByCliente")
+    @JsonIgnoreProperties("clienteByCliente")
     private Collection<Factura> facturasByIdentificacion;
 
     public String getIdentificacion() {

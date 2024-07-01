@@ -1,5 +1,6 @@
 package com.example.proyectoprogra4.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -18,11 +19,14 @@ public class Proveedor {
     @Basic
     @Column(name = "contrasena")
     private String contrasena;
-    @OneToMany(mappedBy = "proveedorByProveedor")
-    private Collection<Factura> facturasByCedula;
-    @OneToMany(mappedBy = "proveedorByProveedor")
-    private Collection<Producto> productosByCedula;
 
+    @OneToMany(mappedBy = "proveedorByProveedor")
+    @JsonIgnoreProperties("proveedorByProveedor")
+    private Collection<Factura> facturasByCedula;
+
+    @OneToMany(mappedBy = "proveedorByProveedor")
+    @JsonIgnoreProperties("proveedorByProveedor")
+    private Collection<Producto> productosByCedula;
     public String getCedula() {
         return cedula;
     }

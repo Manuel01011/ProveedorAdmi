@@ -11,16 +11,68 @@
 <div th:fragment="listaProveedor">
     <nav>
         <ul><!--Lista-->
-            <li><a href="/administracion" >Solicitudes</a></li><!--elementos de la lista-->
+            <li><a href="/adminSolicitudes" >Solicitudes</a></li><!--elementos de la lista-->
             <li><a href="/login">Cerrar Sesion</a></li>
         </ul>
     </nav>
 </div>
 <br><br>
-<div>
-    <h2>Lista de Proveedores</h2>
+<div class="table-container2">
+    <div>
+        <h2>Lista de Proveedores Habilitados</h2>
+        <div class="centered">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cedula</th>
+                    <th>Email</th>
+                    <th>Contraseña</th>
+                    <th></th>
+                </tr>
+                <tr th:each="proveedor : ${proveedores}">
+                    <td th:text="${proveedor.nombre}">Nombre</td>
+                    <td th:text="${proveedor.cedula}">Cedula</td>
+                    <td th:text="${proveedor.correo}">Correo</td>
+                    <td th:text="${proveedor.contrasena}">Contraseña</td>
+                    <td>
+                        <form method="post" th:action="@{/Desabilitar}">
+                            <input type="hidden" name="proveedorId" th:value="*{proveedor.cedula}">
+                            <button type="submit" style="color: white; background-color: darkred; border: none; padding: 5px 10px; border-radius: 5px;">Desabilitar</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-
+    <div>
+        <h2>Lista de Proveedores Deshabilitados</h2>
+        <div class="centered">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cedula</th>
+                    <th>Email</th>
+                    <th>Contraseña</th>
+                    <th></th>
+                </tr>
+                <tr th:each="proveedor : ${proveedoresDesabilitados}">
+                    <td th:text="${proveedor.nombre}">Nombre</td>
+                    <td th:text="${proveedor.cedula}">Cedula</td>
+                    <td th:text="${proveedor.correo}">Correo</td>
+                    <td th:text="${proveedor.contrasena}">Contraseña</td>
+                    <td>
+                        <form method="post" th:action="@{/habilitar}">
+                            <input type="hidden" name="proveedorId" th:value="*{proveedor.cedula}">
+                            <button type="submit" style="color: white; background-color: darkgreen; border: none; padding: 5px 10px; border-radius: 5px;">Habilitar</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+<br><br>
+<nav th:replace="footer :: footer"></nav>
 </body>
 </html>

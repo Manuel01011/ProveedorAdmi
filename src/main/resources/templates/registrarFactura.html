@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles2.css}">
 </head>
 <body>
+<header><h1>Registrar Factura</h1></header>
+<br>
 
 <form th:action="@{/registrarFactura}" th:object="${facturas}" method="post">
     <br>
@@ -33,6 +35,7 @@
             <option th:value="${cliente.identificacion}" th:each="cliente : ${clientes}" th:text="${cliente.identificacion}"></option>
         </select>
     </div>
+    <br>
 
     <div>
         <label for="opciones2">Selecciona el codigo del producto:</label>
@@ -43,12 +46,12 @@
 
 
     <div class="contenedorBotones">
-        <input class="botonRegreso" type="button" value="Atras" onclick="window.location.href = '/login';">
-        <button >Guardar</button>
+        <input class="botonRegreso" type="button" value="Atras" onclick="window.location.href = '/perfilProveedor';">
+        <button id="botonCliente">Guardar</button>
     </div>
-
-
+    <br>
 </form>
-
+<br><br>
+<div th:replace="footer :: footer"></div>
 </body>
 </html>

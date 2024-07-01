@@ -6,9 +6,11 @@ public class Modelo {
     public Modelo(){
 
     }
+
     public Modelo(String mensaje){
     this.mensaje = mensaje;
     }
+
     public String getMensaje() {
         return mensaje;
     }
